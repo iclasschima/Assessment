@@ -1,37 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.scss'
+import React from "react";
+import ProgressStepper from "./components/ProgressStepper";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const steps = [
+    { title: "STEP ONE", desc: "Your basket" },
+    { title: "STEP TWO", desc: "Your details" },
+    { title: "STEP THREE", desc: "Payment" },
+    { title: "STEP FOUR", desc: "Order complete" },
+  ];
+
+  const activeStep = 2;
 
   return (
-    <>
-      <div className='flex flex-row align-center'>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button
-          className='btn'
-          onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Read the asessment guide on the repo README.md file
-      </p>
-    </>
-  )
-}
+    <div className="w-full flex justify-center h-[100vh] items-center">
+      <ProgressStepper steps={steps} activeStep={activeStep} />
+    </div>
+  );
+};
 
-export default App
+export default App;
